@@ -1,0 +1,454 @@
+/* ===== БАЗОВІ СТИЛІ ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: white;
+}
+
+/* ===== СЕРДЕЧКА НА ФОНІ - ВСІ СТОРІНКИ ===== */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: float 15s infinite ease-in;
+    opacity: 0;
+    filter: drop-shadow(0 0 8px rgba(255, 107, 157, 0.5));
+}
+
+@keyframes float {
+    0% {
+        opacity: 0;
+        transform: translateY(100vh) scale(0) rotate(0deg);
+    }
+    10% {
+        opacity: 0.6;
+    }
+    25% {
+        transform: translateY(60vh) scale(0.8) rotate(90deg);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(30vh) scale(1) rotate(180deg);
+        opacity: 0.4;
+    }
+    75% {
+        transform: translateY(-10vh) scale(1.1) rotate(270deg);
+        opacity: 0.3;
+    }
+    90% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) scale(1.3) rotate(360deg);
+    }
+}
+
+/* ===== СТОРІНКИ ===== */
+.page {
+    display: none;
+    min-height: 100vh;
+    position: relative;
+    z-index: 2;
+}
+
+.page.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== СТОРІНКА 1: ПРИВІТАННЯ ===== */
+.content-center {
+    text-align: center;
+    padding: 40px;
+    max-width: 800px;
+}
+
+.welcome-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.main-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4.5em;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.title-line {
+    display: block;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #ff6b9d, #c44569, #f8b500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.3em;
+    opacity: 0.9;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* ===== КНОПКИ ===== */
+.btn-primary {
+    background: linear-gradient(45deg, #ff6b9d, #c44569);
+    color: white;
+    border: none;
+    padding: 18px 45px;
+    font-size: 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 15px 35px;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== СТОРІНКА 2: СЛАЙДЕР З ФОТО ===== */
+.photo-page {
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 900px;
+    width: 100%;
+}
+
+.page-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3em;
+    margin-bottom: 25px;
+    background: linear-gradient(45deg, #ff6b9d, #f8b500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* СЛАЙДЕР */
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 25px;
+}
+
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 3px rgba(255, 107, 157, 0.3);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Кнопки слайдера */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-btn:hover {
+    background: rgba(255, 107, 157, 0.9);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn.prev {
+    left: -15px;
+}
+
+.slider-btn.next {
+    right: -15px;
+}
+
+/* Точки-індикатори */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.dot.active {
+    background: #ff6b9d;
+    transform: scale(1.3);
+}
+
+.photo-caption {
+    font-size: 1.1em;
+    opacity: 0.9;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===== СТОРІНКА 3: ПЛАНИ ===== */
+.plans-page {
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.plans-subtitle {
+    font-size: 1.1em;
+    opacity: 0.8;
+    margin-bottom: 35px;
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.plan-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.plan-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.2), rgba(196, 69, 105, 0.2));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 107, 157, 0.5);
+    box-shadow: 0 20px 40px rgba(255, 107, 157, 0.2);
+}
+
+.plan-card:hover::before {
+    opacity: 1;
+}
+
+.plan-card.selected {
+    border-color: #ff6b9d;
+    background: rgba(255, 107, 157, 0.15);
+    transform: scale(1.05);
+}
+
+.plan-emoji {
+    font-size: 3em;
+    margin-bottom: 12px;
+}
+
+.plan-card h3 {
+    font-size: 1.3em;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.plan-card p {
+    opacity: 0.8;
+    font-size: 0.9em;
+    position: relative;
+}
+
+.selected-plan {
+    background: rgba(255, 107, 157, 0.15);
+    border: 2px solid #ff6b9d;
+    border-radius: 20px;
+    padding: 22px;
+    margin-bottom: 25px;
+    animation: fadeIn 0.5s ease;
+}
+
+.selected-plan p {
+    font-size: 1.15em;
+    margin-bottom: 8px;
+}
+
+.plan-message {
+    color: #ff6b9d;
+    font-weight: 600;
+}
+
+/* ===== АДАПТИВНІСТЬ ===== */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.8em;
+    }
+
+    .page-title {
+        font-size: 2em;
+    }
+
+    .plans-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .plan-card {
+        padding: 20px 12px;
+    }
+
+    .plan-emoji {
+        font-size: 2.5em;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 14px 28px;
+        font-size: 15px;
+    }
+
+    .slider-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 15px;
+    }
+
+    .slider-btn.prev {
+        left: 8px;
+    }
+
+    .slider-btn.next {
+        right: 8px;
+    }
+
+    .slider-container {
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    .plans-grid {
+        grid-template-columns: 1fr;
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

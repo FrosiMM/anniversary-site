@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💜 4 місяці разом</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hearts-container" id="hearts"></div>
+
+    <div class="page active" id="page1">
+        <div class="content-center">
+            <div class="welcome-badge">✨ Річниця ✨</div>
+            <h1 class="main-title">
+                <span class="title-line">4 місяці</span>
+                <span class="title-line gradient-text">щастя з тобою</span>
+            </h1>
+            <p class="subtitle">Кожен день з тобою — це подарунок 💝</p>
+            <button class="btn-primary" onclick="goToPage(2)">
+                Почати святкування →
+            </button>
+        </div>
+    </div>
+
+    <div class="page" id="page2">
+        <div class="photo-page">
+            <h2 class="page-title">Наші моменти 💕</h2>
+
+            <!-- СЛАЙДЕР З ФОТО -->
+            <div class="slider-container">
+                <div class="slider-wrapper" id="sliderWrapper">
+                    <div class="slide active">
+                        <img src="images/photo1.jpg" alt="Ми разом">
+                    </div>
+                    <div class="slide">
+                        <img src="images/photo2.jpg" alt="Ми разом">
+                    </div>
+                    <div class="slide">
+                        <img src="images/photo3.jpg" alt="Ми разом">
+                    </div>
+                    <div class="slide">
+                        <img src="images/photo4.jpg" alt="Ми разом">
+                    </div>
+                    <div class="slide">
+                        <img src="images/photo5.jpg" alt="Ми разом">
+                    </div>
+                    <div class="slide">
+                        <img src="images/photo6.jpg" alt="Ми разом">
+                    </div>
+                </div>
+
+                <!-- Кнопки навігації слайдера -->
+                <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
+                <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
+
+                <!-- Точки-індикатори -->
+                <div class="slider-dots" id="sliderDots">
+                    <span class="dot active" onclick="goToSlide(0)"></span>
+                    <span class="dot" onclick="goToSlide(1)"></span>
+                    <span class="dot" onclick="goToSlide(2)"></span>
+                    <span class="dot" onclick="goToSlide(3)"></span>
+                    <span class="dot" onclick="goToSlide(4)"></span>
+                    <span class="dot" onclick="goToSlide(5)"></span>
+                </div>
+            </div>
+
+            <p class="photo-caption">З тобою кожен момент — особливий ✨</p>
+            <div class="nav-buttons">
+                <button class="btn-secondary" onclick="goToPage(1)">← Назад</button>
+                <button class="btn-primary" onclick="goToPage(3)">Далі →</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="page" id="page3">
+        <div class="plans-page">
+            <h2 class="page-title">Як проведемо цей день? 🎉</h2>
+            <p class="plans-subtitle">Обери, що тобі більше до душі:</p>
+
+            <div class="plans-grid">
+                <div class="plan-card" onclick="selectPlan(this, 'Ресторан 🍷')">
+                    <div class="plan-emoji">🍷</div>
+                    <h3>Ресторан</h3>
+                    <p>Смачна вечеря при свічках</p>
+                </div>
+
+                <div class="plan-card" onclick="selectPlan(this, 'Кафе ☕')">
+                    <div class="plan-emoji">☕</div>
+                    <h3>Кафе</h3>
+                    <p>Затишна атмосфера і десерти</p>
+                </div>
+
+                <div class="plan-card" onclick="selectPlan(this, 'Прогулянка 🌅')">
+                    <div class="plan-emoji">🌅</div>
+                    <h3>Прогулянка</h3>
+                    <p>Парк, закати і розмови</p>
+                </div>
+
+                <div class="plan-card" onclick="selectPlan(this, 'Сюрприз 🎁')">
+                    <div class="plan-emoji">🎁</div>
+                    <h3>Сюрприз</h3>
+                    <p>Я сам все організую!</p>
+                </div>
+            </div>
+
+            <div class="selected-plan" id="selectedPlan" style="display: none;">
+                <p>Твій вибір: <strong id="planName"></strong></p>
+                <p class="plan-message">Чекаю не можу! 💜</p>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn-secondary" onclick="goToPage(2)">← Назад</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
